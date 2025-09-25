@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+---
+<BaseLayout lang="zh" title="匈牙利黄金签证 | 安全获取欧洲居留" description="为您与家人获取匈牙利长期居留。">
+  <Fragment slot="header"><Header currentLang="zh" /></Fragment>
+
+  <section class="relative">
+    <div class="max-w-6xl mx-auto px-4 py-16 text-center">
+      <h1 class="text-3xl md:text-5xl font-bold">通往欧洲生活的安全之路</h1>
+      <p class="mt-4 text-lg text-neutral-600">匈牙利黄金签证，为您与家人提供申根自由出行与欧洲生活机会。</p>
+      <div class="mt-8 flex justify-center gap-4">
+        <a href="/zh/contact/" class="px-5 py-3 rounded bg-neutral-900 text-white">添加微信咨询</a>
+        <a href="/zh/program/" class="px-5 py-3 rounded border">了解项目</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-3 gap-6">
+    <div class="p-6 border rounded">家属随行</div>
+    <div class="p-6 border rounded">申根自由出行</div>
+    <div class="p-6 border rounded">安全稳健投资</div>
+  </section>
+
+  <Fragment slot="footer"><Footer currentLang="zh" /></Fragment>
+</BaseLayout>

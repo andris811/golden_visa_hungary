@@ -1,0 +1,18 @@
+---
+const { currentLang = "zh" } = Astro.props;
+---
+<footer class="border-t mt-16">
+  <div class="max-w-6xl mx-auto px-4 py-8 grid md:grid-cols-3 gap-6 items-center">
+    <div class="text-sm">© {new Date().getFullYear()} AVDev · All rights reserved.</div>
+    <div class="flex gap-4 text-sm justify-center">
+      <a href={`/${currentLang}/program/`}>Program</a>
+      <a href={`/${currentLang}/investment/`}>Investment</a>
+      <a href={`/${currentLang}/about/`}>About</a>
+      <a href={`/${currentLang}/contact/`}>Contact</a>
+    </div>
+    <div class="justify-self-end">
+      <!-- Place a self-hosted WeChat QR image -->
+      <img src="/images/wechat-qr.png" alt="WeChat" class="w-16 h-16" />
+    </div>
+  </div>
+</footer>

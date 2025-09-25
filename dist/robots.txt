@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://<your-username>.github.io/golden_visa_hungary/sitemap-index.xml

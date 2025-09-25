@@ -1,0 +1,32 @@
+---
+interface HeaderProps {
+  currentLang?: 'zh' | 'en';
+}
+
+const { currentLang = 'zh' } = Astro.props as HeaderProps;
+
+// Astro sets this from your config `base` (e.g. "/golden_visa_hungary/")
+// It always ends with a trailing slash in build, and is "/" in dev.
+const BASE: string = import.meta.env.BASE_URL;
+
+// Join helper: accepts paths like "zh/", "en/program/", NOT starting with "/"
+const L = (p: string): string => {
+  const clean = p.replace(/^\/+/, ''); // strip any leading slashes just in case
+  return `${BASE}${clean}`;
+};
+
+const otherLang: 'zh' | 'en' = currentLang === 'zh' ? 'en' : 'zh';
+---
+<header class="border-b">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+    <a href={L(`${currentLang}/`)} class="font-semibold">Hungary Golden Visa</a>
+    <nav class="flex gap-4 text-sm">
+      <a href={L(`${currentLang}/program/`)}>Program</a>
+      <a href={L(`${currentLang}/investment/`)}>Investment</a>
+      <a href={L(`${currentLang}/process/`)}>Process</a>
+      <a href={L(`${currentLang}/about/`)}>About</a>
+      <a class="font-medium" href={L(`${currentLang}/contact/`)}>Contact</a>
+      <a class="ml-6 underline" href={L(`${otherLang}/`)}>{otherLang.toUpperCase()}</a>
+    </nav>
+  </div>
+</header>

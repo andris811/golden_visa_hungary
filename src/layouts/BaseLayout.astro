@@ -1,0 +1,26 @@
+---
+const { title = "Hungary Golden Visa", description = "Secure residency for you and your family", lang = "zh" } = Astro.props;
+---
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.ico" />
+    <!-- Self-hosted CSS -->
+    <link rel="preload" href="/fonts/NotoSansSC-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <style is:global>
+      /* Optional: a safe system font stack + local Noto Sans SC for Chinese */
+      :root { --font-cn: "Noto Sans SC", -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif; }
+      :root { --font-en: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji"; }
+      body { font-family: var(--font-cn); }
+      [lang="en"] body { font-family: var(--font-en); }
+    </style>
+  </head>
+  <body class="bg-white text-neutral-900">
+    <slot name="header" />
+    <main class="min-h-[70vh]">{/* page content */}<slot /></main>
+    <slot name="footer" />
+  </body>
+</html>
