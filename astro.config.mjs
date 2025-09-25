@@ -10,7 +10,7 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
   site: 'https://andris811.github.io/golden_visa_hungary', // update later if custom domain
-  base: '/golden_visa_hungary',
+  base: '/golden_visa_hungary/',
   // trailingSlash: 'always',
   integrations: [sitemap()]
 });
