@@ -4,26 +4,48 @@ interface HeaderProps {
 }
 const { currentLang = 'zh' } = Astro.props as HeaderProps;
 
+// Normalize BASE so it always ends with '/'
 const RAW_BASE: string = import.meta.env.BASE_URL ?? '/';
 const BASE: string = RAW_BASE.endsWith('/') ? RAW_BASE : RAW_BASE + '/';
 
-const L = (p: string): string => {
-  const clean = p.replace(/^\/+/, ''); // strip leading slashes
-  return BASE + clean;                 // guaranteed single slash join
-};
+// Base-aware link joiner. Pass paths WITHOUT leading '/'
+const L = (p: string): string => BASE + p.replace(/^\/+/, '');
+
+// i18n labels
+const t = {
+  zh: {
+    brand: '匈牙利黄金签证',
+    program: '项目介绍',
+    investment: '投资选项',
+    process: '办理流程',
+    about: '关于我们',
+    contact: '联系我们',
+    switch: 'EN',
+  },
+  en: {
+    brand: 'Hungary Golden Visa',
+    program: 'Program',
+    investment: 'Investment',
+    process: 'Process',
+    about: 'About',
+    contact: 'Contact',
+    switch: '中文',
+  }
+} as const;
 
 const otherLang: 'zh' | 'en' = currentLang === 'zh' ? 'en' : 'zh';
+const l = t[currentLang];
 ---
 <header class="border-b">
   <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-    <a href={L(`${currentLang}/`)} class="font-semibold">Hungary Golden Visa</a>
+    <a href={L(`${currentLang}/`)} class="font-semibold">{l.brand}</a>
     <nav class="flex gap-4 text-sm">
-      <a href={L(`${currentLang}/program/`)}>Program</a>
-      <a href={L(`${currentLang}/investment/`)}>Investment</a>
-      <a href={L(`${currentLang}/process/`)}>Process</a>
-      <a href={L(`${currentLang}/about/`)}>About</a>
-      <a class="font-medium" href={L(`${currentLang}/contact/`)}>Contact</a>
-      <a class="ml-6 underline" href={L(`${otherLang}/`)}>{otherLang.toUpperCase()}</a>
+      <a href={L(`${currentLang}/program/`)}>{l.program}</a>
+      <a href={L(`${currentLang}/investment/`)}>{l.investment}</a>
+      <a href={L(`${currentLang}/process/`)}>{l.process}</a>
+      <a href={L(`${currentLang}/about/`)}>{l.about}</a>
+      <a class="font-medium" href={L(`${currentLang}/contact/`)}>{l.contact}</a>
+      <a class="ml-6 underline" href={L(`${otherLang}/`)} aria-label="Switch language">{t[currentLang].switch}</a>
     </nav>
   </div>
 </header>

@@ -1,19 +1,47 @@
 ---
-const { currentLang = "zh" } = Astro.props;
-const RAW_BASE = import.meta.env.BASE_URL ?? '/';
-const BASE = RAW_BASE.endsWith('/') ? RAW_BASE : RAW_BASE + '/';
+interface FooterProps {
+  currentLang?: 'zh' | 'en';
+}
+const { currentLang = 'zh' } = Astro.props as FooterProps;
+
+// Normalize BASE
+const RAW_BASE: string = import.meta.env.BASE_URL ?? '/';
+const BASE: string = RAW_BASE.endsWith('/') ? RAW_BASE : RAW_BASE + '/';
+const L = (p: string): string => BASE + p.replace(/^\/+/, '');
+
+const t = {
+  zh: {
+    program: '项目介绍',
+    investment: '投资选项',
+    about: '关于我们',
+    contact: '联系我们',
+    qrAlt: '微信二维码',
+    rights: '版权所有',
+  },
+  en: {
+    program: 'Program',
+    investment: 'Investment',
+    about: 'About',
+    contact: 'Contact',
+    qrAlt: 'WeChat QR',
+    rights: 'All rights reserved.',
+  }
+} as const;
+
+const l = t[currentLang];
+const year = new Date().getFullYear();
 ---
 <footer class="border-t mt-16">
   <div class="max-w-6xl mx-auto px-4 py-8 grid md:grid-cols-3 gap-6 items-center">
-    <div class="text-sm">© {new Date().getFullYear()} AVDev · All rights reserved.</div>
+    <div class="text-sm">© {year} AVDev · {l.rights}</div>
     <div class="flex gap-4 text-sm justify-center">
-      <a href={`/${currentLang}/program/`.replace(/^\/+/, `${BASE}`)}>Program</a>
-      <a href={`/${currentLang}/investment/`.replace(/^\/+/, `${BASE}`)}>Investment</a>
-      <a href={`/${currentLang}/about/`.replace(/^\/+/, `${BASE}`)}>About</a>
-      <a href={`/${currentLang}/contact/`.replace(/^\/+/, `${BASE}`)}>Contact</a>
+      <a href={L(`${currentLang}/program/`)}>{l.program}</a>
+      <a href={L(`${currentLang}/investment/`)}>{l.investment}</a>
+      <a href={L(`${currentLang}/about/`)}>{l.about}</a>
+      <a href={L(`${currentLang}/contact/`)}>{l.contact}</a>
     </div>
     <div class="justify-self-end">
-      <img src={`${BASE}images/wechat-qr.png`} alt="WeChat" class="w-16 h-16" />
+      <img src={`${BASE}images/wechat-qr.png`} alt={l.qrAlt} class="w-16 h-16" />
     </div>
   </div>
 </footer>
