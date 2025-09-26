@@ -3,33 +3,41 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 ---
-
-<BaseLayout
-  lang="zh"
-  title="匈牙利黄金签证 | 安全获取欧洲居留"
-  description="为您与家人获取匈牙利长期居留。"
->
+<BaseLayout lang="zh" title="匈牙利黄金签证 | 官方信息与专业协助" description="为您与家人安全获取匈牙利居留：项目介绍、申请流程、投资选项、常见问题与专业服务。">
   <Fragment slot="header"><Header currentLang="zh" /></Fragment>
 
-  <section class="relative">
-    <div class="max-w-6xl mx-auto px-4 py-16 text-center">
-      <h1 class="text-3xl md:text-5xl font-bold">通往欧洲生活的安全之路</h1>
-      <p class="mt-4 text-lg text-neutral-600">
-        匈牙利黄金签证，为您与家人提供申根自由出行与欧洲生活机会。
-      </p>
-      <div class="mt-8 flex justify-center gap-4">
-        <a href="contact/" class="px-5 py-3 rounded bg-neutral-900 text-white"
-          >添加微信咨询</a
-        >
-        <a href="program/" class="px-5 py-3 rounded border">了解项目</a>
-      </div>
+  <section class="max-w-6xl mx-auto px-4 py-16 text-center">
+    <h1 class="text-3xl md:text-5xl font-bold">通往欧洲的稳健之路</h1>
+    <p class="mt-4 text-lg text-neutral-700">匈牙利黄金签证项目，助您与家人获得欧洲生活与申根自由出行。</p>
+    <div class="mt-8 flex justify-center gap-4">
+      <a href="contact/" class="px-5 py-3 rounded bg-neutral-900 text-white">添加微信咨询</a>
+      <a href="program/" class="px-5 py-3 rounded border">了解项目</a>
     </div>
   </section>
 
   <section class="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-3 gap-6">
-    <div class="p-6 border rounded">家属随行</div>
-    <div class="p-6 border rounded">申根自由出行</div>
-    <div class="p-6 border rounded">安全稳健投资</div>
+    <div class="p-6 border rounded"><h3 class="font-semibold">家属随行</h3><p class="mt-2 text-sm text-neutral-700">配偶与子女可一同申请，家庭整体规划更安心。</p></div>
+    <div class="p-6 border rounded"><h3 class="font-semibold">申根通行</h3><p class="mt-2 text-sm text-neutral-700">畅行申根区，多国商务与旅行更便捷。</p></div>
+    <div class="p-6 border rounded"><h3 class="font-semibold">稳健选择</h3><p class="mt-2 text-sm text-neutral-700">合规路径与专业团队，全流程透明可控。</p></div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-4 pb-16">
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="p-6 border rounded">
+        <h3 class="font-semibold">项目亮点</h3>
+        <ul class="mt-3 space-y-2 text-sm text-neutral-700 list-disc pl-5">
+          <li>申请流程清晰，周期可控</li>
+          <li>家庭整体居留方案</li>
+          <li>专业法务与翻译支持</li>
+        </ul>
+        <a href="program/" class="inline-block mt-4 text-sm underline">查看项目详情</a>
+      </div>
+      <div class="p-6 border rounded">
+        <h3 class="font-semibold">投资选项</h3>
+        <p class="mt-3 text-sm text-neutral-700">根据风险偏好与资金安排提供多种可选路径。</p>
+        <a href="investment/" class="inline-block mt-4 text-sm underline">查看投资方案</a>
+      </div>
+    </div>
   </section>
 
   <Fragment slot="footer"><Footer currentLang="zh" /></Fragment>

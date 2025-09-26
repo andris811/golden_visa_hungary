@@ -3,34 +3,42 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 ---
+<BaseLayout lang="en" title="Hungary Golden Visa | Official Info & Professional Support" description="Secure residency in Hungary for you and your family: program overview, process, investment options, FAQ, and expert assistance.">
+  <Fragment slot="header"><Header currentLang="en" /></Fragment>
 
-<BaseLayout
-  lang="zh"
-  title="匈牙利黄金签证 | 安全获取欧洲居留"
-  description="为您与家人获取匈牙利长期居留。"
->
-  <Fragment slot="header"><Header currentLang="zh" /></Fragment>
-
-  <section class="relative">
-    <div class="max-w-6xl mx-auto px-4 py-16 text-center">
-      <h1 class="text-3xl md:text-5xl font-bold">通往欧洲生活的安全之路</h1>
-      <p class="mt-4 text-lg text-neutral-600">
-        匈牙利黄金签证，为您与家人提供申根自由出行与欧洲生活机会。
-      </p>
-      <div class="mt-8 flex justify-center gap-4">
-        <a href="contact/" class="px-5 py-3 rounded bg-neutral-900 text-white"
-          >添加微信咨询</a
-        >
-        <a href="program/" class="px-5 py-3 rounded border">了解项目</a>
-      </div>
+  <section class="max-w-6xl mx-auto px-4 py-16 text-center">
+    <h1 class="text-3xl md:text-5xl font-bold">A Stable Path to Europe</h1>
+    <p class="mt-4 text-lg text-neutral-700">The Hungary Golden Visa helps your family access European lifestyle and Schengen mobility.</p>
+    <div class="mt-8 flex justify-center gap-4">
+      <a href="contact/" class="px-5 py-3 rounded bg-neutral-900 text-white">Contact Us</a>
+      <a href="program/" class="px-5 py-3 rounded border">Learn the Program</a>
     </div>
   </section>
 
   <section class="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-3 gap-6">
-    <div class="p-6 border rounded">家属随行</div>
-    <div class="p-6 border rounded">申根自由出行</div>
-    <div class="p-6 border rounded">安全稳健投资</div>
+    <div class="p-6 border rounded"><h3 class="font-semibold">Family Coverage</h3><p class="mt-2 text-sm text-neutral-700">Include spouse and children in one plan.</p></div>
+    <div class="p-6 border rounded"><h3 class="font-semibold">Schengen Access</h3><p class="mt-2 text-sm text-neutral-700">Travel and business made easier.</p></div>
+    <div class="p-6 border rounded"><h3 class="font-semibold">Compliance First</h3><p class="mt-2 text-sm text-neutral-700">Clear process with professional support.</p></div>
   </section>
 
-  <Fragment slot="footer"><Footer currentLang="zh" /></Fragment>
+  <section class="max-w-6xl mx-auto px-4 pb-16">
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="p-6 border rounded">
+        <h3 class="font-semibold">Program Highlights</h3>
+        <ul class="mt-3 space-y-2 text-sm text-neutral-700 list-disc pl-5">
+          <li>Transparent timeline and steps</li>
+          <li>Whole-family residency solutions</li>
+          <li>Legal and translation support</li>
+        </ul>
+        <a href="program/" class="inline-block mt-4 text-sm underline">See program details</a>
+      </div>
+      <div class="p-6 border rounded">
+        <h3 class="font-semibold">Investment Options</h3>
+        <p class="mt-3 text-sm text-neutral-700">Multiple routes for different risk and budget profiles.</p>
+        <a href="investment/" class="inline-block mt-4 text-sm underline">See investment routes</a>
+      </div>
+    </div>
+  </section>
+
+  <Fragment slot="footer"><Footer currentLang="en" /></Fragment>
 </BaseLayout>

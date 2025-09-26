@@ -1,0 +1,26 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+---
+<BaseLayout lang="en" title="Process | Hungary Golden Visa" description="From consultation to approval—what we do and how long it may take.">
+  <Fragment slot="header"><Header currentLang="en" /></Fragment>
+
+  <section class="max-w-6xl mx-auto px-4 py-12">
+    <h1 class="text-2xl md:text-3xl font-bold">Our Process</h1>
+
+    <div class="mt-6 grid md:grid-cols-5 gap-4 text-sm">
+      <div class="p-4 border rounded"><strong>1. Consultation</strong><p class="mt-2 text-neutral-700">Goals & family profile.</p></div>
+      <div class="p-4 border rounded"><strong>2. Route Selection</strong><p class="mt-2 text-neutral-700">Budget & timeline match.</p></div>
+      <div class="p-4 border rounded"><strong>3. Documents</strong><p class="mt-2 text-neutral-700">Legal, translation, checklists.</p></div>
+      <div class="p-4 border rounded"><strong>4. Submission</strong><p class="mt-2 text-neutral-700">Follow-ups & updates.</p></div>
+      <div class="p-4 border rounded"><strong>5. Approval</strong><p class="mt-2 text-neutral-700">Card issuance & renewals.</p></div>
+    </div>
+
+    <div class="mt-10">
+      <a href="../en/contact/" class="px-4 py-2 border rounded">Book a call</a>
+    </div>
+  </section>
+
+  <Fragment slot="footer"><Footer currentLang="en" /></Fragment>
+</BaseLayout>

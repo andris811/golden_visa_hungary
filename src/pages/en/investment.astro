@@ -1,0 +1,34 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+---
+<BaseLayout lang="en" title="Investment Options | Hungary Golden Visa" description="Example routes tailored to different risk appetites and capital plans.">
+  <Fragment slot="header"><Header currentLang="en" /></Fragment>
+
+  <section class="max-w-6xl mx-auto px-4 py-12">
+    <h1 class="text-2xl md:text-3xl font-bold">Investment Options (Examples)</h1>
+    <p class="mt-4 text-neutral-700">Choose a route aligned with your budget and timeline. Exact terms follow policy and agreements.</p>
+
+    <div class="mt-8 grid md:grid-cols-3 gap-6">
+      <div class="p-5 border rounded">
+        <h3 class="font-semibold">Route A</h3>
+        <p class="mt-2 text-sm text-neutral-700">Stability-first, clear steps and predictable processing.</p>
+      </div>
+      <div class="p-5 border rounded">
+        <h3 class="font-semibold">Route B</h3>
+        <p class="mt-2 text-sm text-neutral-700">Balanced approach, efficiency in time and capital.</p>
+      </div>
+      <div class="p-5 border rounded">
+        <h3 class="font-semibold">Route C</h3>
+        <p class="mt-2 text-sm text-neutral-700">Flexible and customized per family profile.</p>
+      </div>
+    </div>
+
+    <div class="mt-10">
+      <a href="../en/process/" class="text-sm underline">See the process</a>
+    </div>
+  </section>
+
+  <Fragment slot="footer"><Footer currentLang="en" /></Fragment>
+</BaseLayout>

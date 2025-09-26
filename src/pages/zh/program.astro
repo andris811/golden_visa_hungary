@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+---
+<BaseLayout lang="zh" title="项目介绍｜匈牙利黄金签证" description="匈牙利黄金签证项目介绍：申请条件、核心权益、办理时长与常见问题。">
+  <Fragment slot="header"><Header currentLang="zh" /></Fragment>
+
+  <section class="max-w-6xl mx-auto px-4 py-12">
+    <h1 class="text-2xl md:text-3xl font-bold">匈牙利黄金签证项目</h1>
+    <p class="mt-4 text-neutral-700">以下内容为概览，实际以官方政策与合约为准，我们协助全程把控合规与时效。</p>
+
+    <h2 class="mt-10 text-xl font-semibold">申请条件（概览）</h2>
+    <ul class="mt-3 space-y-2 text-sm text-neutral-700 list-disc pl-5">
+      <li>年满18周岁，无犯罪记录</li>
+      <li>资金来源合规可解释</li>
+      <li>按所选投资路径准备相关文件</li>
+    </ul>
+
+    <h2 class="mt-10 text-xl font-semibold">核心权益</h2>
+    <div class="mt-4 grid md:grid-cols-3 gap-6">
+      <div class="p-4 border rounded">家庭成员可随行</div>
+      <div class="p-4 border rounded">申根区域通行便利</div>
+      <div class="p-4 border rounded">专业团队合规办理</div>
+    </div>
+
+    <h2 class="mt-10 text-xl font-semibold">办理时长（示例）</h2>
+    <ol class="mt-3 space-y-2 text-sm text-neutral-700 list-decimal pl-5">
+      <li>初步评估与咨询（1–2周）</li>
+      <li>材料准备与递交（2–6周）</li>
+      <li>审理与结果（以官方周期为准）</li>
+      <li>获批与领取卡证</li>
+    </ol>
+
+    <h2 class="mt-10 text-xl font-semibold">常见问题</h2>
+    <details class="mt-3 p-4 border rounded">
+      <summary class="font-medium">家属范围包含哪些？</summary>
+      <p class="mt-2 text-sm text-neutral-700">通常包含配偶与未成年子女，个别情况请联系我们评估。</p>
+    </details>
+    <details class="mt-3 p-4 border rounded">
+      <summary class="font-medium">是否需要长期居住？</summary>
+      <p class="mt-2 text-sm text-neutral-700">以官方要求为准，具体居住与续签条件我们会一对一说明。</p>
+    </details>
+
+    <div class="mt-10">
+      <a href="../zh/contact/" class="px-4 py-2 border rounded">咨询与评估</a>
+    </div>
+  </section>
+
+  <Fragment slot="footer"><Footer currentLang="zh" /></Fragment>
+</BaseLayout>
