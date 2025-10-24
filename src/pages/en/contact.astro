@@ -117,7 +117,7 @@ const currentLang = 'en';
           <p class="text-neutral-600 mb-6">Submit the form and we'll contact you within 1-2 business days</p>
 
           <form class="space-y-5" method="post" action="https://api.web3forms.com/submit">
-            <input type="hidden" name="access_key" value="009d323b-48fd-4bd1-89c5-69538c3747f4" />
+            <input type="hidden" name="access_key" value={import.meta.env.WEB3FORMS_ACCESS_KEY} />
             <input type="hidden" name="subject" value="New Contact Form Submission - Hungary Golden Visa" />
             <input type="hidden" name="redirect" value={`${BASE}en/`} />
 

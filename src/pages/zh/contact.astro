@@ -117,7 +117,7 @@ const currentLang = 'zh';
           <p class="text-neutral-600 mb-6">填写表单，我们将在1-2个工作日内与您联系</p>
 
           <form class="space-y-5" method="post" action="https://api.web3forms.com/submit">
-            <input type="hidden" name="access_key" value="009d323b-48fd-4bd1-89c5-69538c3747f4" />
+            <input type="hidden" name="access_key" value={import.meta.env.WEB3FORMS_ACCESS_KEY} />
             <input type="hidden" name="subject" value="新的咨询表单提交 - 匈牙利黄金签证" />
             <input type="hidden" name="redirect" value={`${BASE}zh/`} />
 
