@@ -2,31 +2,325 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import { BASE, L } from '../../utils/base';
+
+const currentLang = 'zh';
 ---
 <BaseLayout lang="zh" title="投资选项｜匈牙利黄金签证" description="根据风险偏好与资金计划提供多样投资路径示例。">
-  <Fragment slot="header"><Header currentLang="zh" /></Fragment>
+  <Fragment slot="header"><Header currentLang="zh" currentPage="investment" /></Fragment>
 
-  <section class="max-w-6xl mx-auto px-4 py-12">
-    <h1 class="text-2xl md:text-3xl font-bold">投资选项（示例）</h1>
-    <p class="mt-4 text-neutral-700">不同路径适配不同资金安排与风险偏好，实际以政策与合约条款为准。</p>
-
-    <div class="mt-8 grid md:grid-cols-3 gap-6">
-      <div class="p-5 border rounded">
-        <h3 class="font-semibold">方案 A</h3>
-        <p class="mt-2 text-sm text-neutral-700">稳健型，重在流程清晰与时效可控。</p>
-      </div>
-      <div class="p-5 border rounded">
-        <h3 class="font-semibold">方案 B</h3>
-        <p class="mt-2 text-sm text-neutral-700">平衡型，兼顾时间与资金效率。</p>
-      </div>
-      <div class="p-5 border rounded">
-        <h3 class="font-semibold">方案 C</h3>
-        <p class="mt-2 text-sm text-neutral-700">灵活型，因人而异定制化配置。</p>
+  <!-- Page Hero -->
+  <section class="relative bg-gradient-to-br from-blue-50 via-white to-purple-50 py-20">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="animate-fade-in-up">
+        <div class="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-4">
+          Investment Options
+        </div>
+        <h1 class="text-3xl md:text-5xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
+          投资路径选择
+        </h1>
+        <p class="text-lg text-neutral-600 max-w-3xl">
+          多种投资方案满足不同家庭需求，从稳健保守到灵活高效，我们为您量身定制最佳路径。
+        </p>
       </div>
     </div>
+  </section>
 
-    <div class="mt-10">
-      <a href="../process/" class="text-sm underline">查看办理流程</a>
+  <!-- Investment Routes -->
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Real Estate Route -->
+      <div class="card-hover bg-white rounded-2xl shadow-lg p-8 border-2 border-transparent hover:border-purple-200 animate-fade-in-up delay-100">
+        <div class="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mb-6">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+          </svg>
+        </div>
+        <h3 class="text-2xl font-bold mb-3">房地产投资</h3>
+        <div class="inline-block px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold mb-4">
+          稳健保值
+        </div>
+        <p class="text-neutral-600 mb-6">购买匈牙利境内符合条件的住宅或商业地产</p>
+
+        <div class="space-y-3 mb-6">
+          <div class="flex items-start">
+            <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <span class="text-sm text-neutral-700">资产保值增值潜力</span>
+          </div>
+          <div class="flex items-start">
+            <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <span class="text-sm text-neutral-700">可产生租金收益</span>
+          </div>
+          <div class="flex items-start">
+            <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <span class="text-sm text-neutral-700">持有期满可自由支配</span>
+          </div>
+          <div class="flex items-start">
+            <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <span class="text-sm text-neutral-700">适合长期持有规划</span>
+          </div>
+        </div>
+
+        <div class="bg-purple-50 rounded-xl p-4 mb-4">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-xs text-neutral-600">最低投资额</span>
+            <span class="text-lg font-bold text-purple-600">€300K+</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-xs text-neutral-600">持有期限</span>
+            <span class="text-sm font-semibold text-neutral-700">5年</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Government Bonds Route -->
+      <div class="card-hover bg-white rounded-2xl shadow-lg p-8 border-2 border-purple-200 relative animate-fade-in-up delay-200">
+        <div class="absolute -top-3 right-4 px-3 py-1 bg-gradient-primary text-white text-xs font-bold rounded-full">
+          推荐
+        </div>
+        <div class="w-16 h-16 bg-gradient-secondary rounded-2xl flex items-center justify-center mb-6">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+          </svg>
+        </div>
+        <h3 class="text-2xl font-bold mb-3">政府债券</h3>
+        <div class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold mb-4">
+          安全可靠
+        </div>
+        <p class="text-neutral-600 mb-6">购买匈牙利政府发行的特别居留债券</p>
+
+        <div class="space-y-3 mb-6">
+          <div class="flex items-start">
+            <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <span class="text-sm text-neutral-700">政府信用担保</span>
+          </div>
+          <div class="flex items-start">
+            <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <span class="text-sm text-neutral-700">固定利息收益</span>
+          </div>
+          <div class="flex items-start">
+            <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <span class="text-sm text-neutral-700">流程简便快捷</span>
+          </div>
+          <div class="flex items-start">
+            <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <span class="text-sm text-neutral-700">到期全额返还</span>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl p-4 mb-4">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-xs text-neutral-600">最低投资额</span>
+            <span class="text-lg font-bold text-purple-600">€250K</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-xs text-neutral-600">持有期限</span>
+            <span class="text-sm font-semibold text-neutral-700">5年</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Business Investment Route -->
+      <div class="card-hover bg-white rounded-2xl shadow-lg p-8 border-2 border-transparent hover:border-purple-200 animate-fade-in-up delay-300">
+        <div class="w-16 h-16 bg-gradient-success rounded-2xl flex items-center justify-center mb-6">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+        </div>
+        <h3 class="text-2xl font-bold mb-3">企业投资</h3>
+        <div class="inline-block px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-semibold mb-4">
+          灵活定制
+        </div>
+        <p class="text-neutral-600 mb-6">设立或投资匈牙利本地企业，创造就业机会</p>
+
+        <div class="space-y-3 mb-6">
+          <div class="flex items-start">
+            <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <span class="text-sm text-neutral-700">拓展欧洲业务</span>
+          </div>
+          <div class="flex items-start">
+            <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <span class="text-sm text-neutral-700">创造就业岗位</span>
+          </div>
+          <div class="flex items-start">
+            <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <span class="text-sm text-neutral-700">享受税收优惠</span>
+          </div>
+          <div class="flex items-start">
+            <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <span class="text-sm text-neutral-700">方案高度灵活</span>
+          </div>
+        </div>
+
+        <div class="bg-blue-50 rounded-xl p-4 mb-4">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-xs text-neutral-600">最低投资额</span>
+            <span class="text-lg font-bold text-purple-600">€350K+</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-xs text-neutral-600">就业要求</span>
+            <span class="text-sm font-semibold text-neutral-700">5-10人</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison Table -->
+  <section class="bg-gradient-to-b from-neutral-50 to-white py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-12">方案对比</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full bg-white rounded-xl shadow-lg overflow-hidden">
+          <thead class="bg-gradient-primary text-white">
+            <tr>
+              <th class="px-6 py-4 text-left">特征</th>
+              <th class="px-6 py-4 text-center">房地产</th>
+              <th class="px-6 py-4 text-center">政府债券</th>
+              <th class="px-6 py-4 text-center">企业投资</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-neutral-200">
+            <tr class="hover:bg-neutral-50 transition-colors">
+              <td class="px-6 py-4 font-medium">投资金额</td>
+              <td class="px-6 py-4 text-center">€300K+</td>
+              <td class="px-6 py-4 text-center">€250K</td>
+              <td class="px-6 py-4 text-center">€350K+</td>
+            </tr>
+            <tr class="hover:bg-neutral-50 transition-colors">
+              <td class="px-6 py-4 font-medium">持有期限</td>
+              <td class="px-6 py-4 text-center">5年</td>
+              <td class="px-6 py-4 text-center">5年</td>
+              <td class="px-6 py-4 text-center">持续经营</td>
+            </tr>
+            <tr class="hover:bg-neutral-50 transition-colors">
+              <td class="px-6 py-4 font-medium">收益潜力</td>
+              <td class="px-6 py-4 text-center">
+                <span class="inline-block px-2 py-1 bg-green-100 text-green-700 rounded text-xs">中-高</span>
+              </td>
+              <td class="px-6 py-4 text-center">
+                <span class="inline-block px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs">固定</span>
+              </td>
+              <td class="px-6 py-4 text-center">
+                <span class="inline-block px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs">高</span>
+              </td>
+            </tr>
+            <tr class="hover:bg-neutral-50 transition-colors">
+              <td class="px-6 py-4 font-medium">风险等级</td>
+              <td class="px-6 py-4 text-center">中</td>
+              <td class="px-6 py-4 text-center">低</td>
+              <td class="px-6 py-4 text-center">中-高</td>
+            </tr>
+            <tr class="hover:bg-neutral-50 transition-colors">
+              <td class="px-6 py-4 font-medium">管理需求</td>
+              <td class="px-6 py-4 text-center">中</td>
+              <td class="px-6 py-4 text-center">低</td>
+              <td class="px-6 py-4 text-center">高</td>
+            </tr>
+            <tr class="hover:bg-neutral-50 transition-colors">
+              <td class="px-6 py-4 font-medium">适合人群</td>
+              <td class="px-6 py-4 text-center text-sm">稳健投资者</td>
+              <td class="px-6 py-4 text-center text-sm">保守型家庭</td>
+              <td class="px-6 py-4 text-center text-sm">企业家</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Hungary -->
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <h2 class="text-2xl md:text-3xl font-bold text-center mb-12">为什么选择匈牙利</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="card-hover bg-white p-8 rounded-xl shadow-md">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold">欧洲最优税率</h3>
+        </div>
+        <p class="text-neutral-600">企业所得税仅9%，为欧盟最低，个人所得税15%，增值税27%</p>
+      </div>
+
+      <div class="card-hover bg-white p-8 rounded-xl shadow-md">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold">地理位置优越</h3>
+        </div>
+        <p class="text-neutral-600">位于欧洲中心，连接东西欧，交通便利，物流成本低</p>
+      </div>
+
+      <div class="card-hover bg-white p-8 rounded-xl shadow-md">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold">高素质人才</h3>
+        </div>
+        <p class="text-neutral-600">教育水平高，劳动力成本相对较低，多语言优势明显</p>
+      </div>
+
+      <div class="card-hover bg-white p-8 rounded-xl shadow-md">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
+            <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold">快速增长市场</h3>
+        </div>
+        <p class="text-neutral-600">经济持续增长，房地产市场稳定，投资回报潜力可观</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <div class="bg-gradient-primary rounded-2xl p-12 text-center text-white">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">需要投资建议？</h2>
+      <p class="text-lg mb-8 opacity-90">我们的专业团队将根据您的具体情况，为您推荐最适合的投资方案</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href={L(`${currentLang}/contact/`)} class="inline-block px-8 py-4 bg-white text-purple-600 rounded-lg font-semibold hover:shadow-xl transition-all hover:-translate-y-1">
+          免费咨询
+        </a>
+        <a href={L(`${currentLang}/process/`)} class="inline-block px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-purple-600 transition-all">
+          查看办理流程
+        </a>
+      </div>
     </div>
   </section>
 

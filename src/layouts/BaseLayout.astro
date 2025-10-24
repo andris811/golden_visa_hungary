@@ -1,7 +1,6 @@
 ---
 import "../styles/global.css";
-const RAW_BASE = import.meta.env.BASE_URL ?? '/';
-const BASE = RAW_BASE.endsWith('/') ? RAW_BASE : RAW_BASE + '/';
+import { BASE } from '../utils/base';
 
 const { title = "Hungary Golden Visa", description = "", lang = "zh" } = Astro.props;
 ---

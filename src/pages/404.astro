@@ -1,23 +1,20 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-const BASE = import.meta.env.BASE_URL ?? "/";
+import { L } from '../utils/base';
 ---
+<BaseLayout lang="zh" title="404 - 页面未找到 | Page Not Found">
+  <Fragment slot="header"><Header currentLang="zh" /></Fragment>
 
-<html lang="zh">
-  <head><meta charset="utf-8" /><title>404</title></head>
-  <body>
-    <Header currentLang="zh" />
-    <main class="max-w-3xl mx-auto px-4 py-16">
-      <h1 class="text-2xl font-bold mb-4">页面未找到</h1>
-      <p class="mb-6">请返回首页或切换到英文页面。</p>
-      <div class="flex gap-4">
-        <a class="px-4 py-2 border rounded" href={`${BASE}zh/`}>返回中文首页</a>
-        <a class="px-4 py-2 border rounded" href={`${BASE}en/`}
-          >Go to English Home</a
-        >
-      </div>
-    </main>
-    <Footer currentLang="zh" />
-  </body>
-</html>
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <h1 class="text-2xl font-bold mb-4">页面未找到 / Page Not Found</h1>
+    <p class="mb-6">请返回首页或切换到英文页面。 / Please return to homepage or switch to English.</p>
+    <div class="flex gap-4">
+      <a class="px-4 py-2 border rounded hover:bg-neutral-100" href={L('zh/')}>返回中文首页</a>
+      <a class="px-4 py-2 border rounded hover:bg-neutral-100" href={L('en/')}>Go to English Home</a>
+    </div>
+  </section>
+
+  <Fragment slot="footer"><Footer currentLang="zh" /></Fragment>
+</BaseLayout>

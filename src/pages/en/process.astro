@@ -2,23 +2,656 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import { BASE, L } from '../../utils/base';
+
+const currentLang = 'en';
 ---
 <BaseLayout lang="en" title="Process | Hungary Golden Visa" description="From consultation to approval—what we do and how long it may take.">
-  <Fragment slot="header"><Header currentLang="en" /></Fragment>
+  <Fragment slot="header"><Header currentLang="en" currentPage="process" /></Fragment>
 
-  <section class="max-w-6xl mx-auto px-4 py-12">
-    <h1 class="text-2xl md:text-3xl font-bold">Our Process</h1>
+  <!-- Page Hero -->
+  <section class="relative bg-gradient-to-br from-green-50 via-white to-blue-50 py-20">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="animate-fade-in-up">
+        <div class="inline-block px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-semibold mb-4">
+          Application Process
+        </div>
+        <h1 class="text-3xl md:text-5xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
+          Simple & Transparent Process
+        </h1>
+        <p class="text-lg text-neutral-600 max-w-3xl">
+          We provide end-to-end professional services from initial assessment to successful approval. Every step is tracked by dedicated experts to ensure your application proceeds smoothly and efficiently.
+        </p>
+      </div>
+    </div>
+  </section>
 
-    <div class="mt-6 grid md:grid-cols-5 gap-4 text-sm">
-      <div class="p-4 border rounded"><strong>1. Consultation</strong><p class="mt-2 text-neutral-700">Goals & family profile.</p></div>
-      <div class="p-4 border rounded"><strong>2. Route Selection</strong><p class="mt-2 text-neutral-700">Budget & timeline match.</p></div>
-      <div class="p-4 border rounded"><strong>3. Documents</strong><p class="mt-2 text-neutral-700">Legal, translation, checklists.</p></div>
-      <div class="p-4 border rounded"><strong>4. Submission</strong><p class="mt-2 text-neutral-700">Follow-ups & updates.</p></div>
-      <div class="p-4 border rounded"><strong>5. Approval</strong><p class="mt-2 text-neutral-700">Card issuance & renewals.</p></div>
+  <!-- Process Steps Overview -->
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <h2 class="text-2xl md:text-3xl font-bold text-center mb-12">Six Key Steps</h2>
+
+    <div class="space-y-8">
+      <!-- Step 1 -->
+      <div class="card-hover bg-white rounded-2xl shadow-lg p-8 animate-fade-in-up delay-100">
+        <div class="flex flex-col md:flex-row gap-6">
+          <div class="flex-shrink-0">
+            <div class="w-20 h-20 bg-gradient-primary rounded-full flex items-center justify-center">
+              <span class="text-3xl font-bold text-white">1</span>
+            </div>
+          </div>
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-4">
+              <h3 class="text-2xl font-bold">Initial Consultation & Assessment</h3>
+              <span class="px-3 py-1 bg-purple-100 text-purple-700 text-xs font-semibold rounded-full">1-2 weeks</span>
+            </div>
+            <p class="text-neutral-600 mb-4">
+              Our professional consultants will conduct in-depth discussions to understand your family situation, immigration goals, financial status, and timeline. Through comprehensive assessment, we develop the most suitable application strategy for you.
+            </p>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-sm text-neutral-700">Family member information collection</span>
+              </div>
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-sm text-neutral-700">Eligibility pre-screening & risk assessment</span>
+              </div>
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-sm text-neutral-700">Preliminary plan recommendations</span>
+              </div>
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-sm text-neutral-700">Cost & timeline estimation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="card-hover bg-white rounded-2xl shadow-lg p-8 animate-fade-in-up delay-200">
+        <div class="flex flex-col md:flex-row gap-6">
+          <div class="flex-shrink-0">
+            <div class="w-20 h-20 bg-gradient-secondary rounded-full flex items-center justify-center">
+              <span class="text-3xl font-bold text-white">2</span>
+            </div>
+          </div>
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-4">
+              <h3 class="text-2xl font-bold">Investment Plan Selection</h3>
+              <span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">1-2 weeks</span>
+            </div>
+            <p class="text-neutral-600 mb-4">
+              Based on your capital scale, risk appetite, and investment objectives, we help you choose the optimal investment route (real estate, government bonds, or business investment) and assist with signing investment agreements.
+            </p>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-sm text-neutral-700">Detailed investment route comparison</span>
+              </div>
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-sm text-neutral-700">Partner institution recommendations</span>
+              </div>
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-sm text-neutral-700">Investment agreement drafting & review</span>
+              </div>
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-sm text-neutral-700">Source of funds compliance review</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="card-hover bg-white rounded-2xl shadow-lg p-8 animate-fade-in-up delay-300">
+        <div class="flex flex-col md:flex-row gap-6">
+          <div class="flex-shrink-0">
+            <div class="w-20 h-20 bg-gradient-success rounded-full flex items-center justify-center">
+              <span class="text-3xl font-bold text-white">3</span>
+            </div>
+          </div>
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-4">
+              <h3 class="text-2xl font-bold">Document Preparation & Translation</h3>
+              <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full">3-6 weeks</span>
+            </div>
+            <p class="text-neutral-600 mb-4">
+              We provide detailed document checklists and preparation guidance. All documents are processed by professional translation teams to ensure compliance with Hungarian official requirements. Our legal team oversees every step to avoid missing materials or format errors.
+            </p>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-sm text-neutral-700">Personalized document checklist</span>
+              </div>
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-sm text-neutral-700">Professional translation & notarization</span>
+              </div>
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-sm text-neutral-700">Criminal record certificate processing</span>
+              </div>
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-sm text-neutral-700">Financial proof document preparation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="card-hover bg-white rounded-2xl shadow-lg p-8 animate-fade-in-up delay-100">
+        <div class="flex flex-col md:flex-row gap-6">
+          <div class="flex-shrink-0">
+            <div class="w-20 h-20 bg-purple-600 rounded-full flex items-center justify-center">
+              <span class="text-3xl font-bold text-white">4</span>
+            </div>
+          </div>
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-4">
+              <h3 class="text-2xl font-bold">Application Submission</h3>
+              <span class="px-3 py-1 bg-purple-100 text-purple-700 text-xs font-semibold rounded-full">1-2 weeks</span>
+            </div>
+            <p class="text-neutral-600 mb-4">
+              Our team will assist you in completing the online application system, booking interview appointments (if required), and officially submitting all materials to the Hungarian Immigration Office. We ensure your application package is complete and accurate.
+            </p>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-sm text-neutral-700">Online application system filing</span>
+              </div>
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-sm text-neutral-700">Interview scheduling & coaching</span>
+              </div>
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-sm text-neutral-700">Official materials submission</span>
+              </div>
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-sm text-neutral-700">Submission receipt & file management</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="card-hover bg-white rounded-2xl shadow-lg p-8 animate-fade-in-up delay-200">
+        <div class="flex flex-col md:flex-row gap-6">
+          <div class="flex-shrink-0">
+            <div class="w-20 h-20 bg-gradient-primary rounded-full flex items-center justify-center">
+              <span class="text-3xl font-bold text-white">5</span>
+            </div>
+          </div>
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-4">
+              <h3 class="text-2xl font-bold">Processing Follow-Up</h3>
+              <span class="px-3 py-1 bg-purple-100 text-purple-700 text-xs font-semibold rounded-full">Per official timeline</span>
+            </div>
+            <p class="text-neutral-600 mb-4">
+              Once your application enters official review, we continuously track processing progress and promptly respond to any supplemental document requests or inquiries from immigration authorities. We'll assist in preparing additional materials if needed.
+            </p>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-sm text-neutral-700">Regular progress checks & updates</span>
+              </div>
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-sm text-neutral-700">Immediate supplemental document handling</span>
+              </div>
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-sm text-neutral-700">Immigration office communication</span>
+              </div>
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-sm text-neutral-700">Complete progress transparency</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 6 -->
+      <div class="card-hover bg-white rounded-2xl shadow-lg p-8 animate-fade-in-up delay-300">
+        <div class="flex flex-col md:flex-row gap-6">
+          <div class="flex-shrink-0">
+            <div class="w-20 h-20 bg-gradient-success rounded-full flex items-center justify-center">
+              <span class="text-3xl font-bold text-white">6</span>
+            </div>
+          </div>
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-4">
+              <h3 class="text-2xl font-bold">Approval & Post-Approval Services</h3>
+              <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full">Ongoing support</span>
+            </div>
+            <p class="text-neutral-600 mb-4">
+              Congratulations! After approval, we assist with residence card collection and provide ongoing services including renewal reminders, family member additions, permanent residence applications, and more to ensure your Hungarian residency status remains valid.
+            </p>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-sm text-neutral-700">Residence card collection guidance</span>
+              </div>
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-sm text-neutral-700">Renewal reminder services</span>
+              </div>
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-sm text-neutral-700">Permanent residence / citizenship consultation</span>
+              </div>
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-sm text-neutral-700">Relocation & settlement support</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section class="bg-gradient-to-b from-neutral-50 to-white py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-12">Overall Timeline Planning</h2>
+
+      <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+        <div class="space-y-6">
+          <div class="flex items-center gap-4">
+            <div class="w-32 flex-shrink-0 text-right">
+              <span class="text-sm font-semibold text-purple-600">Preparation</span>
+            </div>
+            <div class="flex-1">
+              <div class="bg-gradient-to-r from-purple-500 to-blue-500 h-8 rounded-lg flex items-center px-4 text-white text-sm font-semibold shadow-md">
+                Consultation + Investment Plan: 2-4 weeks
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <div class="w-32 flex-shrink-0 text-right">
+              <span class="text-sm font-semibold text-blue-600">Documentation</span>
+            </div>
+            <div class="flex-1">
+              <div class="bg-gradient-to-r from-blue-500 to-green-500 h-8 rounded-lg flex items-center px-4 text-white text-sm font-semibold shadow-md">
+                Document Preparation & Translation: 3-6 weeks
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <div class="w-32 flex-shrink-0 text-right">
+              <span class="text-sm font-semibold text-green-600">Submission</span>
+            </div>
+            <div class="flex-1">
+              <div class="bg-gradient-to-r from-green-500 to-purple-500 h-8 rounded-lg flex items-center px-4 text-white text-sm font-semibold shadow-md">
+                Application Submission: 1-2 weeks
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <div class="w-32 flex-shrink-0 text-right">
+              <span class="text-sm font-semibold text-orange-600">Official Review</span>
+            </div>
+            <div class="flex-1">
+              <div class="bg-gradient-to-r from-orange-400 to-red-400 h-8 rounded-lg flex items-center px-4 text-white text-sm font-semibold shadow-md">
+                Immigration Approval: Per official timeline (typically 3-6 months)
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 p-6 bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl">
+          <p class="text-sm text-neutral-700 text-center">
+            <strong class="text-purple-700">Estimated Total Duration:</strong> 6-12 months (varies based on individual cases and official processing speed)
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Document Checklist Section -->
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <h2 class="text-2xl md:text-3xl font-bold text-center mb-12">Common Application Document Checklist</h2>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="card-hover bg-white rounded-xl shadow-md p-6">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold">Personal Identity Documents</h3>
+        </div>
+        <ul class="space-y-2 text-sm text-neutral-700">
+          <li class="flex items-start">
+            <span class="mr-2">•</span>
+            <span>Valid passport (6+ months validity)</span>
+          </li>
+          <li class="flex items-start">
+            <span class="mr-2">•</span>
+            <span>Birth certificate</span>
+          </li>
+          <li class="flex items-start">
+            <span class="mr-2">•</span>
+            <span>Marriage/civil status certificate (if applicable)</span>
+          </li>
+          <li class="flex items-start">
+            <span class="mr-2">•</span>
+            <span>Passport photos (Schengen visa standard)</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card-hover bg-white rounded-xl shadow-md p-6">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-12 h-12 bg-gradient-secondary rounded-full flex items-center justify-center">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold">Background Check Documents</h3>
+        </div>
+        <ul class="space-y-2 text-sm text-neutral-700">
+          <li class="flex items-start">
+            <span class="mr-2">•</span>
+            <span>Police clearance certificate (home & residence country)</span>
+          </li>
+          <li class="flex items-start">
+            <span class="mr-2">•</span>
+            <span>Medical examination report</span>
+          </li>
+          <li class="flex items-start">
+            <span class="mr-2">•</span>
+            <span>Proof of address</span>
+          </li>
+          <li class="flex items-start">
+            <span class="mr-2">•</span>
+            <span>Curriculum vitae / resume (if required)</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card-hover bg-white rounded-xl shadow-md p-6">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-12 h-12 bg-gradient-success rounded-full flex items-center justify-center">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold">Financial Proof Documents</h3>
+        </div>
+        <ul class="space-y-2 text-sm text-neutral-700">
+          <li class="flex items-start">
+            <span class="mr-2">•</span>
+            <span>Bank statements (past 6 months)</span>
+          </li>
+          <li class="flex items-start">
+            <span class="mr-2">•</span>
+            <span>Asset proof (real estate, stocks, etc.)</span>
+          </li>
+          <li class="flex items-start">
+            <span class="mr-2">•</span>
+            <span>Income proof / tax records</span>
+          </li>
+          <li class="flex items-start">
+            <span class="mr-2">•</span>
+            <span>Source of funds explanation letter</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card-hover bg-white rounded-xl shadow-md p-6">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold">Investment-Related Documents</h3>
+        </div>
+        <ul class="space-y-2 text-sm text-neutral-700">
+          <li class="flex items-start">
+            <span class="mr-2">•</span>
+            <span>Investment agreement / contract</span>
+          </li>
+          <li class="flex items-start">
+            <span class="mr-2">•</span>
+            <span>Investment fund transfer proof</span>
+          </li>
+          <li class="flex items-start">
+            <span class="mr-2">•</span>
+            <span>Property / bond / business certificates</span>
+          </li>
+          <li class="flex items-start">
+            <span class="mr-2">•</span>
+            <span>Investment project description documents</span>
+          </li>
+        </ul>
+      </div>
     </div>
 
-    <div class="mt-10">
-      <a href="../contact/" class="px-4 py-2 border rounded">Book a call</a>
+    <div class="mt-8 bg-blue-50 border border-blue-200 rounded-xl p-6">
+      <p class="text-sm text-neutral-700 text-center">
+        <strong class="text-blue-700">Note:</strong> All non-Hungarian documents require officially certified translations. We provide one-stop translation and notarization services to ensure all materials meet official requirements.
+      </p>
+    </div>
+  </section>
+
+  <!-- What We Provide Section -->
+  <section class="bg-gradient-to-b from-white to-neutral-50 py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-4">Professional Services We Provide</h2>
+      <p class="text-center text-neutral-600 mb-12 max-w-2xl mx-auto">
+        From initial consultation to successful approval, our professional team accompanies you throughout the entire journey to ensure smooth and efficient processing
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="card-hover bg-white p-6 rounded-xl shadow-md text-center">
+          <div class="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mb-4 mx-auto">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Documentation & Translation</h3>
+          <p class="text-sm text-neutral-600">Professional legal translation team ensuring all documents meet Hungarian official standards with one-stop notarization services</p>
+        </div>
+
+        <div class="card-hover bg-white p-6 rounded-xl shadow-md text-center">
+          <div class="w-16 h-16 bg-gradient-secondary rounded-full flex items-center justify-center mb-4 mx-auto">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Dedicated Consultant</h3>
+          <p class="text-sm text-neutral-600">Experienced immigration consultants tracking your case throughout, promptly addressing questions and providing personalized solutions</p>
+        </div>
+
+        <div class="card-hover bg-white p-6 rounded-xl shadow-md text-center">
+          <div class="w-16 h-16 bg-gradient-success rounded-full flex items-center justify-center mb-4 mx-auto">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Compliance Review</h3>
+          <p class="text-sm text-neutral-600">Legal team rigorously reviewing every document to ensure compliance with Hungarian immigration regulations, maximizing success rates</p>
+        </div>
+
+        <div class="card-hover bg-white p-6 rounded-xl shadow-md text-center">
+          <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mb-4 mx-auto">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Progress Tracking</h3>
+          <p class="text-sm text-neutral-600">Real-time application status monitoring with regular progress reports, keeping you informed at every step</p>
+        </div>
+
+        <div class="card-hover bg-white p-6 rounded-xl shadow-md text-center">
+          <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mb-4 mx-auto">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Investment Facilitation</h3>
+          <p class="text-sm text-neutral-600">Partnerships with reliable investment institutions offering real estate, bonds, business investments and professional advice</p>
+        </div>
+
+        <div class="card-hover bg-white p-6 rounded-xl shadow-md text-center">
+          <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mb-4 mx-auto">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Relocation Services</h3>
+          <p class="text-sm text-neutral-600">Post-approval settlement support including housing, education, healthcare, and other lifestyle arrangements consultation</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="max-w-4xl mx-auto px-4 py-16">
+    <h2 class="text-2xl md:text-3xl font-bold text-center mb-12">Process FAQs</h2>
+    <div class="space-y-4">
+      <details class="card-hover group bg-white p-6 rounded-xl shadow-md cursor-pointer">
+        <summary class="font-semibold text-lg flex items-center justify-between">
+          <span class="flex items-center gap-3">
+            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            How many trips to Hungary are required during the application?
+          </span>
+          <svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </summary>
+        <p class="mt-4 text-neutral-600 pl-9">Typically 1-2 trips depending on your investment route. The first may be for property viewing or signing investment agreements, and the second for interviews (if required) and collecting your residence card. We arrange all trips to maximize efficiency.</p>
+      </details>
+
+      <details class="card-hover group bg-white p-6 rounded-xl shadow-md cursor-pointer">
+        <summary class="font-semibold text-lg flex items-center justify-between">
+          <span class="flex items-center gap-3">
+            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            What if supplemental documents are requested?
+          </span>
+          <svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </summary>
+        <p class="mt-4 text-neutral-600 pl-9">Our team will be notified immediately and communicate specific requirements with you. We'll assist in quickly preparing supplemental materials to ensure timely submission within the required deadline, avoiding approval delays.</p>
+      </details>
+
+      <details class="card-hover group bg-white p-6 rounded-xl shadow-md cursor-pointer">
+        <summary class="font-semibold text-lg flex items-center justify-between">
+          <span class="flex items-center gap-3">
+            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            Can the process be expedited?
+          </span>
+          <svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </summary>
+        <p class="mt-4 text-neutral-600 pl-9">Official processing times are determined by immigration authorities and cannot be expedited. However, we can optimize the preparation phase (consultation, documentation, submission) to minimize preparation time and ensure your materials pass the first review, reducing delays from supplemental requests.</p>
+      </details>
+
+      <details class="card-hover group bg-white p-6 rounded-xl shadow-md cursor-pointer">
+        <summary class="font-semibold text-lg flex items-center justify-between">
+          <span class="flex items-center gap-3">
+            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            Can I work or live in Hungary during the application period?
+          </span>
+          <svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </summary>
+        <p class="mt-4 text-neutral-600 pl-9">After submission, temporary residence permits may be available in certain cases. Specific rights depend on your chosen investment route and individual circumstances. We'll provide appropriate guidance based on your needs to ensure legal compliance.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-gradient-to-b from-neutral-50 to-white py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="bg-gradient-primary rounded-2xl p-12 text-center text-white">
+        <h2 class="text-2xl md:text-3xl font-bold mb-4">Ready to Start Your Application?</h2>
+        <p class="text-lg mb-8 opacity-90">Contact us for personalized professional assessment and customized application planning</p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a href={L(`${currentLang}/contact/`)} class="inline-block px-8 py-4 bg-white text-purple-600 rounded-lg font-semibold hover:shadow-xl transition-all hover:-translate-y-1">
+            Contact Us Now
+          </a>
+          <a href={L(`${currentLang}/investment/`)} class="inline-block px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-purple-600 transition-all">
+            View Investment Options
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 

@@ -2,48 +2,219 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import { BASE, L } from '../../utils/base';
+
+const currentLang = 'en';
 ---
 <BaseLayout lang="en" title="Program Overview | Hungary Golden Visa" description="Eligibility, key benefits, processing timeline, and FAQs for the Hungary Golden Visa.">
-  <Fragment slot="header"><Header currentLang="en" /></Fragment>
+  <Fragment slot="header"><Header currentLang="en" currentPage="program" /></Fragment>
 
-  <section class="max-w-6xl mx-auto px-4 py-12">
-    <h1 class="text-2xl md:text-3xl font-bold">Program Overview</h1>
-    <p class="mt-4 text-neutral-700">Below is a concise outline; details follow official policy and agreements. We assist end-to-end.</p>
-
-    <h2 class="mt-10 text-xl font-semibold">Eligibility (Summary)</h2>
-    <ul class="mt-3 space-y-2 text-sm text-neutral-700 list-disc pl-5">
-      <li>18+ years old, clean criminal record</li>
-      <li>Lawful, explainable source of funds</li>
-      <li>Prepare documents per chosen route</li>
-    </ul>
-
-    <h2 class="mt-10 text-xl font-semibold">Key Benefits</h2>
-    <div class="mt-4 grid md:grid-cols-3 gap-6">
-      <div class="p-4 border rounded">Family included</div>
-      <div class="p-4 border rounded">Schengen mobility</div>
-      <div class="p-4 border rounded">Professional compliance</div>
+  <!-- Page Hero -->
+  <section class="relative bg-gradient-to-br from-purple-50 via-white to-blue-50 py-20">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="animate-fade-in-up">
+        <div class="inline-block px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-semibold mb-4">
+          Program Overview
+        </div>
+        <h1 class="text-3xl md:text-5xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
+          Hungary Golden Visa Program
+        </h1>
+        <p class="text-lg text-neutral-600 max-w-3xl">
+          Below is a concise outline; details follow official policy and agreements. We assist end-to-end.
+        </p>
+      </div>
     </div>
+  </section>
 
-    <h2 class="mt-10 text-xl font-semibold">Indicative Timeline</h2>
-    <ol class="mt-3 space-y-2 text-sm text-neutral-700 list-decimal pl-5">
-      <li>Initial consultation (1–2 weeks)</li>
-      <li>Document preparation & submission (2–6 weeks)</li>
-      <li>Official review (as per authority timelines)</li>
-      <li>Approval & card issuance</li>
-    </ol>
+  <!-- Eligibility Section -->
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <div class="card-hover bg-white rounded-2xl shadow-lg p-8 md:p-12 animate-fade-in-up delay-100">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <h2 class="text-2xl md:text-3xl font-bold">Eligibility (Summary)</h2>
+      </div>
+      <ul class="space-y-4">
+        <li class="flex items-start">
+          <svg class="w-6 h-6 text-green-500 mr-4 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+          </svg>
+          <span class="text-neutral-700">18+ years old, clean criminal record</span>
+        </li>
+        <li class="flex items-start">
+          <svg class="w-6 h-6 text-green-500 mr-4 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+          </svg>
+          <span class="text-neutral-700">Lawful, explainable source of funds</span>
+        </li>
+        <li class="flex items-start">
+          <svg class="w-6 h-6 text-green-500 mr-4 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+          </svg>
+          <span class="text-neutral-700">Prepare documents per chosen route</span>
+        </li>
+      </ul>
+    </div>
+  </section>
 
-    <h2 class="mt-10 text-xl font-semibold">FAQ</h2>
-    <details class="mt-3 p-4 border rounded">
-      <summary class="font-medium">Who qualifies as family?</summary>
-      <p class="mt-2 text-sm text-neutral-700">Typically spouse and dependent children. Contact us for edge cases.</p>
-    </details>
-    <details class="mt-3 p-4 border rounded">
-      <summary class="font-medium">Do I need to reside full-time?</summary>
-      <p class="mt-2 text-sm text-neutral-700">Follow official residence/renewal requirements; we brief you 1-on-1.</p>
-    </details>
+  <!-- Benefits Section -->
+  <section class="bg-gradient-to-b from-white to-neutral-50 py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-12">Key Benefits</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="card-hover bg-white p-8 rounded-xl shadow-md animate-fade-in-up delay-100">
+          <div class="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mb-4 mx-auto">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-center mb-2">Family Included</h3>
+          <p class="text-neutral-600 text-center text-sm">Spouse and children together</p>
+        </div>
 
-    <div class="mt-10">
-      <a href="../contact/" class="px-4 py-2 border rounded">Get a consultation</a>
+        <div class="card-hover bg-white p-8 rounded-xl shadow-md animate-fade-in-up delay-200">
+          <div class="w-16 h-16 bg-gradient-secondary rounded-full flex items-center justify-center mb-4 mx-auto">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-center mb-2">Schengen Mobility</h3>
+          <p class="text-neutral-600 text-center text-sm">Free access to 26 countries</p>
+        </div>
+
+        <div class="card-hover bg-white p-8 rounded-xl shadow-md animate-fade-in-up delay-300">
+          <div class="w-16 h-16 bg-gradient-success rounded-full flex items-center justify-center mb-4 mx-auto">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-center mb-2">Professional Compliance</h3>
+          <p class="text-neutral-600 text-center text-sm">Full legal & translation support</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <h2 class="text-2xl md:text-3xl font-bold text-center mb-12">Indicative Timeline</h2>
+    <div class="relative">
+      <!-- Timeline line -->
+      <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-primary"></div>
+
+      <div class="space-y-12">
+        <!-- Step 1 -->
+        <div class="relative flex items-center animate-slide-in-left">
+          <div class="flex-1 pr-8 text-right">
+            <div class="card-hover bg-white p-6 rounded-xl shadow-md inline-block">
+              <div class="flex items-center justify-end gap-3 mb-2">
+                <h3 class="font-bold text-lg">Initial Consultation</h3>
+                <div class="w-10 h-10 bg-gradient-primary rounded-full flex items-center justify-center text-white font-bold">1</div>
+              </div>
+              <p class="text-neutral-600 text-sm">1–2 weeks</p>
+            </div>
+          </div>
+          <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-purple-600 rounded-full border-4 border-white"></div>
+          <div class="flex-1 pl-8"></div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="relative flex items-center animate-slide-in-right">
+          <div class="flex-1 pr-8"></div>
+          <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-purple-600 rounded-full border-4 border-white"></div>
+          <div class="flex-1 pl-8">
+            <div class="card-hover bg-white p-6 rounded-xl shadow-md inline-block">
+              <div class="flex items-center gap-3 mb-2">
+                <div class="w-10 h-10 bg-gradient-primary rounded-full flex items-center justify-center text-white font-bold">2</div>
+                <h3 class="font-bold text-lg">Document Preparation</h3>
+              </div>
+              <p class="text-neutral-600 text-sm">2–6 weeks</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="relative flex items-center animate-slide-in-left delay-100">
+          <div class="flex-1 pr-8 text-right">
+            <div class="card-hover bg-white p-6 rounded-xl shadow-md inline-block">
+              <div class="flex items-center justify-end gap-3 mb-2">
+                <h3 class="font-bold text-lg">Official Review</h3>
+                <div class="w-10 h-10 bg-gradient-primary rounded-full flex items-center justify-center text-white font-bold">3</div>
+              </div>
+              <p class="text-neutral-600 text-sm">Per authority timelines</p>
+            </div>
+          </div>
+          <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-purple-600 rounded-full border-4 border-white"></div>
+          <div class="flex-1 pl-8"></div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="relative flex items-center animate-slide-in-right delay-100">
+          <div class="flex-1 pr-8"></div>
+          <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-purple-600 rounded-full border-4 border-white"></div>
+          <div class="flex-1 pl-8">
+            <div class="card-hover bg-white p-6 rounded-xl shadow-md inline-block">
+              <div class="flex items-center gap-3 mb-2">
+                <div class="w-10 h-10 bg-gradient-success rounded-full flex items-center justify-center text-white font-bold">4</div>
+                <h3 class="font-bold text-lg">Approval & Issuance</h3>
+              </div>
+              <p class="text-neutral-600 text-sm">Complete application</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="bg-gradient-to-b from-neutral-50 to-white py-16">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-12">FAQ</h2>
+      <div class="space-y-4">
+        <details class="card-hover group bg-white p-6 rounded-xl shadow-md cursor-pointer">
+          <summary class="font-semibold text-lg flex items-center justify-between">
+            <span class="flex items-center gap-3">
+              <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              Who qualifies as family?
+            </span>
+            <svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </summary>
+          <p class="mt-4 text-neutral-600 pl-9">Typically spouse and dependent children. Contact us for edge cases.</p>
+        </details>
+
+        <details class="card-hover group bg-white p-6 rounded-xl shadow-md cursor-pointer">
+          <summary class="font-semibold text-lg flex items-center justify-between">
+            <span class="flex items-center gap-3">
+              <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              Do I need to reside full-time?
+            </span>
+            <svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </summary>
+          <p class="mt-4 text-neutral-600 pl-9">Follow official residence/renewal requirements; we brief you 1-on-1.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <div class="bg-gradient-primary rounded-2xl p-12 text-center text-white">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">Ready to Start Your Application?</h2>
+      <p class="text-lg mb-8 opacity-90">Contact us for professional one-on-one assessment and consultation</p>
+      <a href={L(`${currentLang}/contact/`)} class="inline-block px-8 py-4 bg-white text-purple-600 rounded-lg font-semibold hover:shadow-xl transition-all hover:-translate-y-1">
+        Get a Consultation
+      </a>
     </div>
   </section>
 

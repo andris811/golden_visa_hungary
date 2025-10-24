@@ -1,47 +1,47 @@
 ---
+import { BASE, L } from '../utils/base';
+import { getTranslations, type Lang } from '../utils/i18n';
+
 interface FooterProps {
-  currentLang?: 'zh' | 'en';
+  currentLang?: Lang;
 }
 const { currentLang = 'zh' } = Astro.props as FooterProps;
 
-// Normalize BASE
-const RAW_BASE: string = import.meta.env.BASE_URL ?? '/';
-const BASE: string = RAW_BASE.endsWith('/') ? RAW_BASE : RAW_BASE + '/';
-const L = (p: string): string => BASE + p.replace(/^\/+/, '');
-
-const t = {
-  zh: {
-    program: '项目介绍',
-    investment: '投资选项',
-    about: '关于我们',
-    contact: '联系我们',
-    qrAlt: '微信二维码',
-    rights: '版权所有',
-  },
-  en: {
-    program: 'Program',
-    investment: 'Investment',
-    about: 'About',
-    contact: 'Contact',
-    qrAlt: 'WeChat QR',
-    rights: 'All rights reserved.',
-  }
-} as const;
-
-const l = t[currentLang];
+const t = getTranslations(currentLang);
 const year = new Date().getFullYear();
 ---
-<footer class="border-t mt-16">
-  <div class="max-w-6xl mx-auto px-4 py-8 grid md:grid-cols-3 gap-6 items-center">
-    <div class="text-sm">© {year} AVDev · {l.rights}</div>
-    <div class="flex gap-4 text-sm justify-center">
-      <a href={L(`${currentLang}/program/`)}>{l.program}</a>
-      <a href={L(`${currentLang}/investment/`)}>{l.investment}</a>
-      <a href={L(`${currentLang}/about/`)}>{l.about}</a>
-      <a href={L(`${currentLang}/contact/`)}>{l.contact}</a>
-    </div>
-    <div class="justify-self-end">
-      <img src={`${BASE}images/wechat-qr.png`} alt={l.qrAlt} class="w-16 h-16" />
+<footer class="bg-gradient-to-b from-neutral-50 to-neutral-100 border-t mt-20">
+  <div class="max-w-6xl mx-auto px-4 py-12">
+    <div class="grid md:grid-cols-3 gap-8 items-start">
+      <!-- Brand Section -->
+      <div>
+        <div class="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-3">
+          AVDev
+        </div>
+        <p class="text-sm text-neutral-600 mb-4">
+          © {year} · {t.rights}
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h4 class="font-semibold text-neutral-900 mb-4 text-sm uppercase tracking-wider">Quick Links</h4>
+        <div class="flex flex-col gap-3 text-sm">
+          <a href={L(`${currentLang}/program/`)} class="text-neutral-600 hover:text-purple-600 transition-colors">{t.program}</a>
+          <a href={L(`${currentLang}/investment/`)} class="text-neutral-600 hover:text-purple-600 transition-colors">{t.investment}</a>
+          <a href={L(`${currentLang}/about/`)} class="text-neutral-600 hover:text-purple-600 transition-colors">{t.about}</a>
+          <a href={L(`${currentLang}/contact/`)} class="text-neutral-600 hover:text-purple-600 transition-colors">{t.contact}</a>
+        </div>
+      </div>
+
+      <!-- WeChat QR -->
+      <div class="flex flex-col items-start md:items-end">
+        <h4 class="font-semibold text-neutral-900 mb-4 text-sm uppercase tracking-wider">Connect</h4>
+        <div class="bg-white p-3 rounded-xl shadow-md">
+          <img src={`${BASE}images/wechat-qr.png`} alt={t.qrAlt} class="w-24 h-24" />
+        </div>
+        <p class="text-xs text-neutral-500 mt-2">{t.qrAlt}</p>
+      </div>
     </div>
   </div>
 </footer>

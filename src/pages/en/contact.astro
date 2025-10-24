@@ -2,38 +2,373 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-const RAW_BASE = import.meta.env.BASE_URL ?? '/';
-const BASE = RAW_BASE.endsWith('/') ? RAW_BASE : RAW_BASE + '/';
+import { BASE, L } from '../../utils/base';
+
+const currentLang = 'en';
 ---
 <BaseLayout lang="en" title="Contact | Hungary Golden Visa" description="Add us on WeChat or send a message to get a tailored evaluation and plan.">
-  <Fragment slot="header"><Header currentLang="en" /></Fragment>
+  <Fragment slot="header"><Header currentLang="en" currentPage="contact" /></Fragment>
 
-  <section class="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-2 gap-8">
-    
-    <div>
-      <h1 class="text-2xl md:text-3xl font-bold">Contact Us</h1>
-      <p class="mt-4 text-neutral-700">Add us on WeChat or submit the form—we’ll get back within 1–2 business days (indicative).</p>
-      <div class="mt-6 p-4 border rounded">
-        <p class="text-sm text-neutral-700">WeChat QR</p>
-        <img src={`${BASE}images/wechat-qr.png`} alt="WeChat QR" class="mt-3 w-40 h-40 object-contain" />
+  <!-- Page Hero -->
+  <section class="relative bg-gradient-to-br from-purple-50 via-white to-blue-50 py-20">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="animate-fade-in-up">
+        <div class="inline-block px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-semibold mb-4">
+          Contact Us
+        </div>
+        <h1 class="text-3xl md:text-5xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
+          Begin Your Hungary Golden Visa Journey
+        </h1>
+        <p class="text-lg text-neutral-600 max-w-3xl">
+          Our professional team is ready to provide personalized one-on-one consultation services. No matter what stage of the application process you're in, we'll provide expert guidance and support.
+        </p>
       </div>
     </div>
+  </section>
 
-    <form class="p-6 border rounded space-y-4" method="post" action="#">
-      <div>
-        <label class="block text-sm font-medium">Name</label>
-        <input class="mt-1 w-full border rounded px-3 py-2" name="name" required />
+  <!-- Contact Methods & Form Section -->
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <div class="grid md:grid-cols-2 gap-12">
+      <!-- Contact Information -->
+      <div class="space-y-8">
+        <div class="animate-fade-in-up delay-100">
+          <h2 class="text-2xl md:text-3xl font-bold mb-8">Get in Touch</h2>
+
+          <!-- WeChat -->
+          <div class="card-hover bg-white rounded-2xl shadow-lg p-8 mb-6">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-14 h-14 bg-gradient-success rounded-full flex items-center justify-center">
+                <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 4.229 6.884 4.229.826 0 1.622-.12 2.361-.336a.722.722 0 0 1 .598.082l1.584.926a.272.272 0 0 0 .14.047c.134 0 .24-.111.24-.247 0-.06-.023-.12-.038-.177l-.327-1.233a.582.582 0 0 1-.023-.156.49.49 0 0 1 .201-.398C23.024 18.48 24 16.82 24 14.98c0-3.21-2.931-5.837-6.656-6.088V8.89c-.135-.01-.27-.03-.407-.03zm-2.53 3.274c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.969-.982zm4.844 0c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.969-.982z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold">WeChat Consultation</h3>
+                <p class="text-sm text-neutral-600">Scan QR code for instant communication</p>
+              </div>
+            </div>
+            <div class="bg-gradient-to-br from-green-50 to-blue-50 rounded-xl p-6 text-center">
+              <img src={`${BASE}images/wechat-qr.png`} alt="WeChat QR Code" class="mx-auto w-48 h-48 object-contain mb-3" />
+              <p class="text-sm text-neutral-600">Scan to add us on WeChat</p>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="card-hover bg-white rounded-2xl shadow-lg p-6 mb-6">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold mb-1">Email Contact</h3>
+                <a href="mailto:info@hungarygoldenvisa.com" class="text-purple-600 hover:text-purple-700 font-medium">
+                  info@hungarygoldenvisa.com
+                </a>
+                <p class="text-sm text-neutral-600 mt-1">Response within 24 hours</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phone -->
+          <div class="card-hover bg-white rounded-2xl shadow-lg p-6 mb-6">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-gradient-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold mb-1">Phone Consultation</h3>
+                <a href="tel:+36123456789" class="text-purple-600 hover:text-purple-700 font-medium">
+                  +36 1 234 5678
+                </a>
+                <p class="text-sm text-neutral-600 mt-1">Weekdays 9:00-18:00 (CET/CEST)</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Office Address -->
+          <div class="card-hover bg-white rounded-2xl shadow-lg p-6">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold mb-1">Office Address</h3>
+                <p class="text-neutral-700">
+                  Budapest, Hungary<br/>
+                  1052 Budapest, Váci utca 1-3
+                </p>
+                <p class="text-sm text-neutral-600 mt-1">Visit by appointment</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div>
-        <label class="block text-sm font-medium">Phone / WeChat ID</label>
-        <input class="mt-1 w-full border rounded px-3 py-2" name="contact" required />
+
+      <!-- Contact Form -->
+      <div class="animate-fade-in-up delay-200">
+        <div class="card-hover bg-white rounded-2xl shadow-lg p-8">
+          <h2 class="text-2xl font-bold mb-2">Online Consultation Form</h2>
+          <p class="text-neutral-600 mb-6">Submit the form and we'll contact you within 1-2 business days</p>
+
+          <form class="space-y-5" method="post" action="https://api.web3forms.com/submit">
+            <input type="hidden" name="access_key" value="009d323b-48fd-4bd1-89c5-69538c3747f4" />
+            <input type="hidden" name="subject" value="New Contact Form Submission - Hungary Golden Visa" />
+            <input type="hidden" name="redirect" value={`${BASE}en/`} />
+
+            <div>
+              <label class="block text-sm font-semibold text-neutral-700 mb-2">Name *</label>
+              <input
+                type="text"
+                name="name"
+                required
+                class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                placeholder="Enter your full name"
+              />
+            </div>
+
+            <div>
+              <label class="block text-sm font-semibold text-neutral-700 mb-2">Phone / WeChat ID *</label>
+              <input
+                type="text"
+                name="contact"
+                required
+                class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                placeholder="So we can reach you"
+              />
+            </div>
+
+            <div>
+              <label class="block text-sm font-semibold text-neutral-700 mb-2">Email</label>
+              <input
+                type="email"
+                name="email"
+                class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                placeholder="Your email address (optional)"
+              />
+            </div>
+
+            <div>
+              <label class="block text-sm font-semibold text-neutral-700 mb-2">Inquiry Type</label>
+              <select
+                name="inquiry_type"
+                class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+              >
+                <option value="">Please select</option>
+                <option value="initial">Initial Consultation</option>
+                <option value="investment">Investment Options</option>
+                <option value="process">Application Process</option>
+                <option value="documents">Document Preparation</option>
+                <option value="other">Other Questions</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-sm font-semibold text-neutral-700 mb-2">Your Questions or Requirements *</label>
+              <textarea
+                name="message"
+                rows="5"
+                required
+                class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all resize-none"
+                placeholder="Please describe your situation and needs in detail so we can provide more accurate advice..."
+              ></textarea>
+            </div>
+
+            <div class="flex items-start">
+              <input
+                type="checkbox"
+                name="privacy_agreed"
+                required
+                class="mt-1 w-4 h-4 text-purple-600 border-neutral-300 rounded focus:ring-purple-500"
+              />
+              <label class="ml-2 text-sm text-neutral-600">
+                I have read and agree to the relevant privacy policy, and authorize the use of my information for consultation services *
+              </label>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full px-8 py-4 bg-gradient-primary text-white rounded-lg font-semibold hover:shadow-xl transition-all hover:-translate-y-1"
+            >
+              Submit Inquiry
+            </button>
+
+            <p class="text-xs text-neutral-500 text-center">
+              After submission, our consultant will contact you through the provided contact method within 1-2 business days
+            </p>
+          </form>
+        </div>
       </div>
-      <div>
-        <label class="block text-sm font-medium">Message</label>
-        <textarea class="mt-1 w-full border rounded px-3 py-2" rows="4" name="message"></textarea>
+    </div>
+  </section>
+
+  <!-- Why Contact Us Section -->
+  <section class="bg-gradient-to-b from-neutral-50 to-white py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-4">Why Consult With Us?</h2>
+      <p class="text-center text-neutral-600 mb-12 max-w-2xl mx-auto">
+        We provide professional, transparent, and efficient one-stop services
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="card-hover bg-white p-6 rounded-xl shadow-md text-center">
+          <div class="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mb-4 mx-auto">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Fast Response</h3>
+          <p class="text-sm text-neutral-600">Reply within 24 hours on business days</p>
+        </div>
+
+        <div class="card-hover bg-white p-6 rounded-xl shadow-md text-center">
+          <div class="w-16 h-16 bg-gradient-secondary rounded-full flex items-center justify-center mb-4 mx-auto">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Professional Team</h3>
+          <p class="text-sm text-neutral-600">Experienced immigration consultants familiar with Hungarian policies</p>
+        </div>
+
+        <div class="card-hover bg-white p-6 rounded-xl shadow-md text-center">
+          <div class="w-16 h-16 bg-gradient-success rounded-full flex items-center justify-center mb-4 mx-auto">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">One-on-One Service</h3>
+          <p class="text-sm text-neutral-600">Dedicated consultant tracking your case, personalized solutions</p>
+        </div>
+
+        <div class="card-hover bg-white p-6 rounded-xl shadow-md text-center">
+          <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mb-4 mx-auto">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Transparent Pricing</h3>
+          <p class="text-sm text-neutral-600">Clear fee breakdown, no hidden charges</p>
+        </div>
+
+        <div class="card-hover bg-white p-6 rounded-xl shadow-md text-center">
+          <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mb-4 mx-auto">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Multilingual Support</h3>
+          <p class="text-sm text-neutral-600">Chinese and English speaking consultants available</p>
+        </div>
+
+        <div class="card-hover bg-white p-6 rounded-xl shadow-md text-center">
+          <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mb-4 mx-auto">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Proven Track Record</h3>
+          <p class="text-sm text-neutral-600">Extensive successful cases, trustworthy results</p>
+        </div>
       </div>
-      <button class="px-4 py-2 bg-neutral-900 text-white rounded" type="submit">Send</button>
-    </form>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="max-w-4xl mx-auto px-4 py-16">
+    <h2 class="text-2xl md:text-3xl font-bold text-center mb-12">Consultation FAQs</h2>
+    <div class="space-y-4">
+      <details class="card-hover group bg-white p-6 rounded-xl shadow-md cursor-pointer">
+        <summary class="font-semibold text-lg flex items-center justify-between">
+          <span class="flex items-center gap-3">
+            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            Is the consultation free?
+          </span>
+          <svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </summary>
+        <p class="mt-4 text-neutral-600 pl-9">Initial consultation is completely free. We'll learn about your situation in detail and provide preliminary assessment and recommendations. If you decide to engage our services, we'll provide a detailed service agreement and fee breakdown.</p>
+      </details>
+
+      <details class="card-hover group bg-white p-6 rounded-xl shadow-md cursor-pointer">
+        <summary class="font-semibold text-lg flex items-center justify-between">
+          <span class="flex items-center gap-3">
+            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            How soon will I receive a response?
+          </span>
+          <svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </summary>
+        <p class="mt-4 text-neutral-600 pl-9">We typically respond to inquiries within 24 hours on business days. Contacting via WeChat provides faster responses. Inquiries submitted on weekends and holidays will be processed on the next business day.</p>
+      </details>
+
+      <details class="card-hover group bg-white p-6 rounded-xl shadow-md cursor-pointer">
+        <summary class="font-semibold text-lg flex items-center justify-between">
+          <span class="flex items-center gap-3">
+            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            What documents do I need for consultation?
+          </span>
+          <svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </summary>
+        <p class="mt-4 text-neutral-600 pl-9">Initial consultation requires no documents. You simply need to tell us your basic situation and needs. If we proceed to formal assessment, we'll provide a detailed document checklist to guide your preparation.</p>
+      </details>
+
+      <details class="card-hover group bg-white p-6 rounded-xl shadow-md cursor-pointer">
+        <summary class="font-semibold text-lg flex items-center justify-between">
+          <span class="flex items-center gap-3">
+            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            Will my information be kept confidential?
+          </span>
+          <svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </summary>
+        <p class="mt-4 text-neutral-600 pl-9">We strictly adhere to privacy protection policies. All personal information you provide is used solely for consultation services and will not be disclosed to third parties. We employ encryption technology to protect your data security.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- Office Hours Section -->
+  <section class="bg-gradient-to-b from-white to-neutral-50 py-16">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="bg-gradient-primary rounded-2xl p-8 md:p-12 text-white text-center">
+        <h2 class="text-2xl md:text-3xl font-bold mb-4">Office Hours</h2>
+        <div class="grid md:grid-cols-2 gap-6 mt-8">
+          <div class="bg-white bg-opacity-20 rounded-xl p-6">
+            <h3 class="font-bold text-lg mb-2">Weekdays</h3>
+            <p class="text-white text-opacity-90">Monday - Friday</p>
+            <p class="text-2xl font-bold mt-2">9:00 - 18:00</p>
+            <p class="text-sm text-white text-opacity-75 mt-1">(Central European Time CET/CEST)</p>
+          </div>
+          <div class="bg-white bg-opacity-20 rounded-xl p-6">
+            <h3 class="font-bold text-lg mb-2">Weekends</h3>
+            <p class="text-white text-opacity-90">Saturday & Sunday</p>
+            <p class="text-2xl font-bold mt-2">By Appointment</p>
+            <p class="text-sm text-white text-opacity-75 mt-1">Weekend consultations available with advance booking</p>
+          </div>
+        </div>
+        <p class="mt-6 text-white text-opacity-90">
+          We will notify you in advance of any service hour adjustments during holidays
+        </p>
+      </div>
+    </div>
   </section>
 
   <Fragment slot="footer"><Footer currentLang="en" /></Fragment>

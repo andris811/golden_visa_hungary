@@ -1,51 +1,37 @@
 ---
+import { BASE, L } from '../utils/base';
+import { getTranslations, getOtherLang, type Lang } from '../utils/i18n';
+
 interface HeaderProps {
-  currentLang?: 'zh' | 'en';
+  currentLang?: Lang;
+  currentPage?: string;
 }
-const { currentLang = 'zh' } = Astro.props as HeaderProps;
+const { currentLang = 'zh', currentPage = 'home' } = Astro.props as HeaderProps;
 
-// Normalize BASE so it always ends with '/'
-const RAW_BASE: string = import.meta.env.BASE_URL ?? '/';
-const BASE: string = RAW_BASE.endsWith('/') ? RAW_BASE : RAW_BASE + '/';
+const t = getTranslations(currentLang);
+const otherLang = getOtherLang(currentLang);
 
-// Base-aware link joiner. Pass paths WITHOUT leading '/'
-const L = (p: string): string => BASE + p.replace(/^\/+/, '');
-
-// i18n labels
-const t = {
-  zh: {
-    brand: '匈牙利黄金签证',
-    program: '项目介绍',
-    investment: '投资选项',
-    process: '办理流程',
-    about: '关于我们',
-    contact: '联系我们',
-    switch: 'EN',
-  },
-  en: {
-    brand: 'Hungary Golden Visa',
-    program: 'Program',
-    investment: 'Investment',
-    process: 'Process',
-    about: 'About',
-    contact: 'Contact',
-    switch: '中文',
-  }
-} as const;
-
-const otherLang: 'zh' | 'en' = currentLang === 'zh' ? 'en' : 'zh';
-const l = t[currentLang];
+// Helper to determine if a link is active
+const isActive = (page: string) => currentPage === page ? 'text-purple-600 font-bold' : 'text-neutral-700 hover:text-purple-600';
 ---
-<header class="border-b">
-  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-    <a href={L(`${currentLang}/`)} class="font-semibold">{l.brand}</a>
-    <nav class="flex gap-4 text-sm">
-      <a href={L(`${currentLang}/program/`)}>{l.program}</a>
-      <a href={L(`${currentLang}/investment/`)}>{l.investment}</a>
-      <a href={L(`${currentLang}/process/`)}>{l.process}</a>
-      <a href={L(`${currentLang}/about/`)}>{l.about}</a>
-      <a class="font-medium" href={L(`${currentLang}/contact/`)}>{l.contact}</a>
-      <a class="ml-6 underline" href={L(`${otherLang}/`)} aria-label="Switch language">{t[currentLang].switch}</a>
+<header class="bg-white shadow-sm sticky top-0 z-50 backdrop-blur-lg bg-opacity-90">
+  <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+    <a href={L(`${currentLang}/`)} class="text-xl font-bold text-purple-600 hover:text-purple-700 hover:scale-105 transition-all">
+      {t.brand}
+    </a>
+    <nav class="hidden md:flex gap-6 text-sm items-center">
+      <a href={L(`${currentLang}/program/`)} class={`${isActive('program')} transition-colors font-medium`}>{t.program}</a>
+      <a href={L(`${currentLang}/investment/`)} class={`${isActive('investment')} transition-colors font-medium`}>{t.investment}</a>
+      <a href={L(`${currentLang}/process/`)} class={`${isActive('process')} transition-colors font-medium`}>{t.process}</a>
+      <a href={L(`${currentLang}/about/`)} class={`${isActive('about')} transition-colors font-medium`}>{t.about}</a>
+      <a href={L(`${currentLang}/contact/`)} class="btn-primary px-4 py-2 rounded-lg text-white text-sm font-semibold">{t.contact}</a>
+      <a href={L(`${otherLang}/`)} class="ml-2 px-3 py-1 border border-purple-600 text-purple-600 rounded-lg hover:bg-purple-600 hover:text-white transition-all" aria-label="Switch language">{t.switch}</a>
     </nav>
+    <!-- Mobile menu button placeholder -->
+    <button class="md:hidden p-2 text-neutral-700 hover:text-purple-600">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
   </div>
 </header>
